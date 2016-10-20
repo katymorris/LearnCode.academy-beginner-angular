@@ -7,7 +7,12 @@ angular.module('app', [
   	  $stateProvider.state('home', {
   		url: '/',
   		templateUrl: 'templates/home.html',
-  		controller: 'homeCtrl' 
+  		controller: 'homeCtrl' ,
+  		resolve: {
+  			friends: ['Friends', function(Friends) {
+  				return Friends.get();
+  			}]
+  		}
   	})
   	  $stateProvider.state('about', {
   		url: '/',
